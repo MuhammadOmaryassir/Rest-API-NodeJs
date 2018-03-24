@@ -23,6 +23,7 @@ db.books.insert([
 	author: 'Jules Verne',
 	read: false
 },
+
 {
 	title: 'The Dark World',
 	genre: 'Fantasy',
