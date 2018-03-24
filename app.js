@@ -1,48 +1,26 @@
 var express = require('express'),
     mongoose = require('mongoose')
+    bodyParser = require('body-parser')
 
 // connect to the Database
 var db = mongoose.connect('mongodb://localhost/bookAPI')
 var Book = require('./models/bookModel') // import the Book Schema
 var app = express()
 
-var port = process.env.PORT || 3000 // port number
+
+var port = process.env.PORT  // port number
+
+// using body parser middleware
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json())
 
 
-var bookRouter = express.Router() // define express router called book router
-
-// get the books from the db  with filtering option
-bookRouter.route('/Books')
-    .get(function (req, res) {
-
-        var query = {};
-
-        if (req.query.genre) {
-            query.genre = req.query.genre
-        }
-        Book.find(query, function (err, books) {
-            if (err)
-                res.status(500).send(err)
-            else
-                res.json(books)
-        });
-    });
-
-// get one book using the book id 
-bookRouter.route('/Books/:bookId')
-    .get(function (req, res) {
+bookRouter = require('./Routes/bookRoutes')(Book);
 
 
-        Book.findById(req.params.bookId, function (err, book) {
-            if (err)
-                res.status(500).send(err)
-            else
-                res.json(book)
-        });
-    });
+app.use('/api/Books', bookRouter) // express middleware to handle Book Router
 
 
-app.use('/api', bookRouter) // express middle ware to handle Book Router
 // home page
 app.get('/', function (req, res) {
     res.send('Welcome to our API')
