@@ -1,13 +1,14 @@
 # Rest-API-NodeJs
 
-#### This is A Book Router Using NodeJS and Mongo DB 
+### This is A Book Router Using NodeJS and Mongo DB 
 
-#### The Following Methods are Working and tested : 
--Get
--post
--put
--patch
--delete
+#### The Following Methods are Working and tested :
+
+- Get
+- post
+- put
+- patch
+- delete
 
 ## Installation
 
