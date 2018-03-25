@@ -30,7 +30,8 @@ $ mongo bookAPI < booksJson.js
 ```bash
 $ npm run test
 ``` 
-<blockquote class="imgur-embed-pub" lang="en" data-id="UCU3mXQ"><a href="//imgur.com/UCU3mXQ"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+[Imgur](https://i.imgur.com/UCU3mXQ.png)
 
 >Note: you Can add many tests  as you want.
 
