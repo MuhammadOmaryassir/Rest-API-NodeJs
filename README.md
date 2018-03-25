@@ -28,8 +28,10 @@ $ mongo bookAPI < booksJson.js
 
 #### API's HATEOAS Provided 
 
+>self embeded link to each book
 ![Imgur](https://i.imgur.com/0ucW1zQ.png)
 
+>self embeded link to Flilteration by the genre
 ![Imgur](https://i.imgur.com/6I2ffYe.png)
 
 #### To run Unit testing
