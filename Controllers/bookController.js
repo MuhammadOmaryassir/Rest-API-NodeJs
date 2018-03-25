@@ -1,9 +1,9 @@
-bookController = function(Book){
+bookController = function (Book) {
     // post a new book and save it to the Database
     var post = function (req, res) {
         var book = new Book(req.body)
 
-        if (!req.body.title){
+        if (!req.body.title) {
             res.status(400)
             res.send('Title is required')
         } else {
@@ -23,8 +23,16 @@ bookController = function(Book){
         Book.find(query, function (err, books) {
             if (err)
                 res.status(500).send(err)
-            else
-                res.json(books)
+            else {
+                var returnBooks = []
+                books.forEach(function (element, index, array) {
+                    var newBook = element.toJSON()
+                    newBook.links = {}
+                    newBook.links.self = 'http://' + req.headers.host + '/api/books/' + newBook._id
+                    returnBooks.push(newBook)
+                });
+                res.json(returnBooks)
+            }
         })
     }
     return {
@@ -32,4 +40,4 @@ bookController = function(Book){
         get: get
     }
 }
-module.exports = bookController 
+module.exports = bookController
