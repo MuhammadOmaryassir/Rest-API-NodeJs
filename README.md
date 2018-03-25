@@ -30,7 +30,7 @@ $ mongo bookAPI < booksJson.js
 ```bash
 $ npm run test
 ``` 
-![alt text](https://imgur.com/a/1IFY6)
+![alt text](https://imgur.com/UCU3mXQ)
 
 >Note: you Can add many tests  as you want.
 
