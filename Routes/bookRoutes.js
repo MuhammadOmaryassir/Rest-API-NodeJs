@@ -4,32 +4,17 @@ routes = function (Book) {
 
     var bookRouter = express.Router() // define express router called book router
 
-    // get and post  the books from and to  the db  with filtering option
+    var bookController = require('../Controllers/bookController')(Book)
     bookRouter.route('/')
-        .get(function (req, res) {
 
-            var query = {};
+        // get all the data in the Data base
+        .get(bookController.get)
 
-            if (req.query.genre) {
-                query.genre = req.query.genre
-            }
-            Book.find(query, function (err, books) {
-                if (err)
-                    res.status(500).send(err)
-                else
-                    res.json(books)
-            })
-        })
+
         // post a new book and save it to the Database
-        .post(function (req, res) {
-            var book = new Book(req.body);
+        .post(bookController.post)
 
-
-            book.save();
-            res.status(201).send(book);
-
-        })
-
+        
     // Book Middleware to find a book by id
     bookRouter.use('/:bookId', function(req,res,next){
         Book.findById(req.params.bookId, function(err,book){
