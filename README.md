@@ -31,7 +31,7 @@ $ mongo bookAPI < booksJson.js
 $ npm run test
 ``` 
 
-[Imgur](https://i.imgur.com/UCU3mXQ.png)
+![Imgur](https://i.imgur.com/UCU3mXQ.png)
 
 >Note: you Can add many tests  as you want.
 
