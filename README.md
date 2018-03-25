@@ -26,6 +26,12 @@ $ npm install
 $ mongo bookAPI < booksJson.js
 ```
 
+#### API's HATEOAS Provided 
+
+![Imgur](https://i.imgur.com/0ucW1zQ.png)
+
+![Imgur](https://i.imgur.com/6I2ffYe.png)
+
 #### To run Unit testing
 ```bash
 $ npm run test
